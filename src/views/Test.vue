@@ -1,5 +1,4 @@
 <template>
-  <!-- <h2>路由名：{{route}}</h2> -->
   <h1>vue3-reactive：{{number}}</h1>
   <h2>computed：当前数据的两倍：{{doubleNum}}</h2>
   <p><button @click="add">增加</button></p>
@@ -15,7 +14,6 @@ export default {
     const { ctx } = getCurrentInstance()
     const state = reactive({
       number: 12,
-      // route: ctx.$router.currentRoute.value.name,
       doubleNum: computed(() => state.number * 2)
     })
     // 事件绑定
