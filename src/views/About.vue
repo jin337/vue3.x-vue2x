@@ -16,6 +16,7 @@ export default {
     // 初始化属性
     const number = ref(12)
     // const route = ctx.$router.currentRoute.value.name
+    console.log(ctx.$router)
     // 事件绑定
     const add = () => { number.value++ }
     const update = () => { ctx.$store.commit('setTest', number) }
