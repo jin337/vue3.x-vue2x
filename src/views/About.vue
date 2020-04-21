@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ref, watch, computed, getCurrentInstance } from 'vue'
+import { ref, watch, computed, getCurrentInstance, onMounted } from 'vue'
 export default {
   name: 'About',
   setup () {
@@ -16,9 +16,6 @@ export default {
     // 初始化属性
     const number = ref(12)
     // const route = ctx.$router.currentRoute.value.name
-    console.log(ctx.$router)
-    console.log(ctx)
-    console.log(this)
     // 事件绑定
     const add = () => { number.value++ }
     const update = () => { ctx.$store.commit('setTest', number) }
@@ -34,6 +31,10 @@ export default {
     watch(
       doubleNum, () => { console.log(`监控doubleNum数据为${doubleNum.value}`) }
     )
+
+    onMounted(() => {
+      console.log(ctx)
+    })
 
     // 获取路由
 
