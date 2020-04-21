@@ -19,6 +19,8 @@ const routes = [
 ]
 
 const router = createRouter({
+  mode: 'hash',
+  base: '/vue3.0-demo/dist/',
   history: createWebHistory(process.env.BASE_URL),
   routes
 })

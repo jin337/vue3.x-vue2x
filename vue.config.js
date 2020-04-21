@@ -3,7 +3,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   outputDir: 'dist',
-  publicPath: '/vue3.0-demo/dist/',
+  publicPath: '/',
   productionSourceMap: false,
   runtimeCompiler: true,
   assetsDir: 'assets',
