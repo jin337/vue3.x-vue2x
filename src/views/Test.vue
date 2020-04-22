@@ -23,9 +23,8 @@ export default {
     // 计算属性
     const testNum = computed(() => ctx.$store.state.test)
 
-    // 数据监听
-    const router = ctx.$router
-    console.log(router)
+    // 路由
+    console.log(getCurrentInstance())
 
     return {
       ...toRefs(state),
