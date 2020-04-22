@@ -1,5 +1,4 @@
 <template>
-  <h1>路由：{{router.name}}</h1>
   <h1>vue3-reactive：{{number}}</h1>
   <h2>computed：当前数据的两倍：{{doubleNum}}</h2>
   <p><button @click="add">增加</button></p>
@@ -15,8 +14,7 @@ export default {
     const { ctx } = getCurrentInstance()
     const state = reactive({
       number: 12,
-      doubleNum: computed(() => state.number * 2),
-      router: ctx.$router.currentRoute.value
+      doubleNum: computed(() => state.number * 2)
     })
     // 事件绑定
     const add = () => state.number++
@@ -26,7 +24,8 @@ export default {
     const testNum = computed(() => ctx.$store.state.test)
 
     // 数据监听
-    console.log(state.router)
+    const router = ctx.$router
+    console.log(router)
 
     return {
       ...toRefs(state),
