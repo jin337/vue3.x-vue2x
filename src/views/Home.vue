@@ -33,9 +33,15 @@ export default {
     add () { this.number++ },
     update () { this.setTest(this.number) }
   },
-  watch: {
+  watch: { // 数据监听
     number: (val) => { console.log(`监控number数据为${val}`) },
     doubleNum: (val) => { console.log(`监控doubleNum数据为${val}`) }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+div{
+  opacity: 0;
+}
+</style>
