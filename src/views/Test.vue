@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, computed, getCurrentInstance } from 'vue'
+import { reactive, toRefs, computed, getCurrentInstance, watch } from 'vue'
 export default {
   name: 'Test',
   setup () {
@@ -23,8 +23,13 @@ export default {
     // 计算属性
     const testNum = computed(() => ctx.$store.state.test)
 
-    // 路由
-    console.log(getCurrentInstance())
+    // 数据监听
+    watch(() =>
+      state.number, () => { console.log(`监控number数据为${state.number}`) }
+    )
+    watch(() =>
+      state.doubleNum, () => { console.log(`监控doubleNum数据为${state.doubleNum}`) }
+    )
 
     return {
       ...toRefs(state),
