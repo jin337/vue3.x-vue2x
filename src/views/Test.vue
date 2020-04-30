@@ -31,6 +31,8 @@ export default {
       state.doubleNum, () => { console.log(`监控doubleNum数据为${state.doubleNum}`) }
     )
 
+    console.log(ctx.$router.currentRoute.value)
+
     return {
       ...toRefs(state),
       testNum,
