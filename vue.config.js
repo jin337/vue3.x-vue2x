@@ -10,7 +10,9 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: 1111,
-    open: true
+    hot: true,
+    open: true,
+    historyApiFallback: true
   },
   configureWebpack: {
     resolve: {
