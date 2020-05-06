@@ -1,4 +1,5 @@
 <template>
+  <h1>路由：{{route}}</h1>
   <h1>vue2x-data：{{number}}</h1>
   <h2>computed：当前数据的两倍：{{doubleNum}}</h2>
   <p><button @click="add">增加</button></p>
@@ -25,6 +26,9 @@ export default {
     doubleNum () {
       return this.number * 2
     }
+  },
+  created () {
+    this.route = this.$route.name
   },
   methods: { // 事件绑定
     ...mapMutations([

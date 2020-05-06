@@ -1,4 +1,5 @@
 <template>
+  <h1>路由：{{route.name}}</h1>
   <h1>vue3-ref：{{number}}</h1>
   <h2>computed：当前数据的两倍：{{doubleNum}}</h2>
   <p><button @click="add">增加</button></p>
@@ -7,20 +8,25 @@
 </template>
 
 <script>
-import { ref, watch, computed, getCurrentInstance } from 'vue'
+import { ref, watch, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 export default {
   name: 'About',
   setup () {
-    const { ctx } = getCurrentInstance()
+    // 路由
+    const route = useRoute()
+    // vuex
+    const store = useStore()
     // 初始化属性
     const number = ref(12)
     // 事件绑定
     const add = () => { number.value++ }
-    const update = () => { ctx.$store.commit('setTest', number) }
+    const update = () => { store.commit('setTest', number) }
 
     // 计算属性
     const doubleNum = computed(() => number.value * 2)
-    const testNum = computed(() => ctx.$store.state.test)
+    const testNum = computed(() => store.state.test)
 
     // 数据监听
     watch(
@@ -33,6 +39,7 @@ export default {
     // 获取路由
 
     return {
+      route,
       number,
       doubleNum,
       testNum,
